@@ -65,8 +65,8 @@ The `{{< countdown >}}` shortcode comes from the `gadenbuie/countdown` extension
 |---|---|---|
 | 01 Talking with LLMs | `undraw_chat-with-ai_ir62.svg` | `auto 50%` |
 | 02 Programming with LLMs | `undraw_large-language-models_m4no.svg` | `auto 45%` |
-| 03 Augmented generation | `undraw_ai-research-assistant_cxx0.svg` | `auto 50%` |
-| 04 Beyond tools | `undraw_artificial-intelligence_43qa.svg` | `auto 55%` |
+| 03 Prompt engineering and RAG | `undraw_ai-research-assistant_cxx0.svg` | `auto 50%` |
+| 04 Beyond prompts | `undraw_artificial-intelligence_43qa.svg` | `auto 55%` |
 | 05 AI coding assistants | `undraw_coding-assistant_i178.svg` | `auto 40%` |
 | 06 Code completions | `undraw_vibe-coding_mjme.svg` | `auto 50%` |
 | 07 Chat assistance | `undraw_ai-answers_uxgx.svg` | `auto 50%` |
