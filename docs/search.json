@@ -74,21 +74,28 @@
     "href": "slides/04-beyond-prompts.html#letting-the-model-use-your-functions",
     "title": "Beyond prompts",
     "section": "Letting the model use your functions",
-    "text": "Letting the model use your functions\n\nThe model decides when to call; you decide what is callable\nThe shape: function name, description, JSON schema for arguments\nYou execute the function and send the result back"
+    "text": "Letting the model use your functions\n\nThe model decides when to call but you decide what is callable\nThe shape: function name, description, JSON schema for arguments\nYou execute the function and send the result back"
   },
   {
-    "objectID": "slides/04-beyond-prompts.html#demos",
-    "href": "slides/04-beyond-prompts.html#demos",
+    "objectID": "slides/04-beyond-prompts.html#tool-calling-1",
+    "href": "slides/04-beyond-prompts.html#tool-calling-1",
     "title": "Beyond prompts",
-    "section": "Demos",
-    "text": "Demos\n\nManual loop (demo/04-manual-tools): see every step\nAutomatic loop (demo/04-weather-tool): let the library handle the round trips"
+    "section": "Tool calling",
+    "text": "Tool calling\n\n\n\nDemo\n\n\nTODO for 04-manual-tools"
+  },
+  {
+    "objectID": "slides/04-beyond-prompts.html#tool-calling-2",
+    "href": "slides/04-beyond-prompts.html#tool-calling-2",
+    "title": "Beyond prompts",
+    "section": "Tool calling",
+    "text": "Tool calling\n\n\n\nDemo\n\n\nAutomatic loop (demo/04-weather-tool): let the library handle the round trips"
   },
   {
     "objectID": "slides/04-beyond-prompts.html#your-turn",
     "href": "slides/04-beyond-prompts.html#your-turn",
     "title": "Beyond prompts",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 14-quiz-game-tools and wire tool calling into the quiz show app:\n\nProvide a function that plays a sound (R: beepr, Python: playsound).\nDocument it well and register it as a tool in the quiz show app.\nWatch the model learn when to play which sound.\n\n\n\n\n\n  \n    −\n    +\n \n 20:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 14-quiz-game-tools and wire tool calling into the quiz show app:\n\nProvide a function that plays a sound (R: beepr, Python: playsound)\nDocument it well and register it as a tool in the quiz show app\nWatch the model learn when to play which sound\n\n\n\n\n\n  \n    −\n    +\n \n 20:00"
   },
   {
     "objectID": "slides/04-beyond-prompts.html#showing-tool-activity-to-users",
@@ -102,49 +109,35 @@
     "href": "slides/04-beyond-prompts.html#your-turn-1",
     "title": "Beyond prompts",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 15-quiz-game-ui and progressively upgrade the quiz show app:\n\nAdd tool annotations: give each tool an icon and title.\nReturn a ContentToolResult with a custom title and icon.\nTrack answers and score in reactive value boxes that update from tool calls.\n(Optional) Add a “finish round” tool that displays the final score.\n\n\n\n\n\n  \n    −\n    +\n \n 20:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 15-quiz-game-ui and progressively upgrade the quiz show app:\n\nAdd tool annotations: give each tool an icon and title\nReturn a ContentToolResult with a custom title and icon\nTrack answers and score in reactive value boxes that update from tool calls\n(Optional) Add a “finish round” tool that displays the final score\n\n\n\n\n\n  \n    −\n    +\n \n 20:00"
   },
   {
-    "objectID": "slides/04-beyond-prompts.html#model-context-protocol",
-    "href": "slides/04-beyond-prompts.html#model-context-protocol",
+    "objectID": "slides/04-beyond-prompts.html#a-preview-of-day-2",
+    "href": "slides/04-beyond-prompts.html#a-preview-of-day-2",
     "title": "Beyond prompts",
-    "section": "Model Context Protocol",
-    "text": "Model Context Protocol\n\nA common standard for exposing tools and resources to LLM clients\nWhy this matters: write a server once, use it from many clients\nMCP support is growing in Positron, VS Code, Claude Desktop, etc."
-  },
-  {
-    "objectID": "slides/04-beyond-prompts.html#your-turn-2",
-    "href": "slides/04-beyond-prompts.html#your-turn-2",
-    "title": "Beyond prompts",
-    "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 17-mcp and connect an MCP server to ellmer or chatlas:\n\nOptions to try: ArXiV, fetcher, git-ingest, github, context7.\nNotice: the model now has access to tools you did not write.\n\n\n\n\n\n  \n    −\n    +\n \n 15:00"
-  },
-  {
-    "objectID": "slides/04-beyond-prompts.html#a-glimpse-of-whats-next",
-    "href": "slides/04-beyond-prompts.html#a-glimpse-of-whats-next",
-    "title": "Beyond prompts",
-    "section": "A glimpse of what’s next",
-    "text": "A glimpse of what’s next\n\nShort definition (Hadley / Simon Willison): an LLM with a read tool and a write tool\nAutonomous, long-context, minimal intervention\nThis is the whole story of Day 2, we go deep on agents tomorrow"
+    "section": "A preview of Day 2",
+    "text": "A preview of Day 2\n\nModel Context Protocol: a common standard for exposing tools and resources to LLM clients\n\nWrite a server once, use it from many clients (Positron, VS Code, Claude Desktop, …)\n\nAgent: an LLM with a read tool and a write tool\n\nAutonomous, long-context, minimal intervention\n\nWe pick both of these up tomorrow, wiring MCP servers into an AI coding assistant and understanding agents"
   },
   {
     "objectID": "slides/04-beyond-prompts.html#chatting-with-your-data",
     "href": "slides/04-beyond-prompts.html#chatting-with-your-data",
     "title": "Beyond prompts",
     "section": "Chatting with your data",
-    "text": "Chatting with your data\n\nA drop-in Shiny module that turns a data frame into a chat-driven explorer\nThe model writes the SQL or dplyr; the app runs it"
+    "text": "Chatting with your data\n\nA drop-in Shiny module that turns a data frame into a chat-driven explorer\nThe model writes the SQL or dplyr, and the app runs it!"
   },
   {
-    "objectID": "slides/04-beyond-prompts.html#your-turn-3",
-    "href": "slides/04-beyond-prompts.html#your-turn-3",
+    "objectID": "slides/04-beyond-prompts.html#your-turn-2",
+    "href": "slides/04-beyond-prompts.html#your-turn-2",
     "title": "Beyond prompts",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nBonus, if time allows. Open 16-querychat and add querychat to an existing Shiny app.\n\n\n\n\n  \n    −\n    +\n \n 10:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 16-querychat and add querychat to an existing Shiny app.\n\n\n\n\n  \n    −\n    +\n \n 10:00"
   },
   {
     "objectID": "slides/04-beyond-prompts.html#hopes-and-fears",
     "href": "slides/04-beyond-prompts.html#hopes-and-fears",
     "title": "Beyond prompts",
     "section": "Hopes and fears",
-    "text": "Hopes and fears\n\nWhere these tools seem to be going\nWhat to watch out for: cost, lock-in, evaluation, trust\nOpen discussion: what does this change about your day-to-day work?"
+    "text": "Hopes and fears\n\nWhere these tools seem to be going\nWhat to watch out for\n\nCost, lock-in, evaluation, trust\n\nWhat do these tools change about your day-to-day work? How can you build on them?\nWhat we will pick up on Day 2\n\nBuild with AI"
   },
   {
     "objectID": "slides/02-programming-with-llms.html#day-1-build-on-ai",
@@ -375,14 +368,14 @@
     "href": "slides/03-prompt-engineering.html#your-turn",
     "title": "Prompt engineering and RAG",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 09-plot-interpret and ask the model about a plot:\n\nGenerate a plot of mpg vs. weight from mtcars\nAsk the model to interpret it\nDiscuss what it got right and where it leaned on priors\n\n\n\n\n\n  \n    −\n    +\n \n 10:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 09-plot-interpret and ask the model about a plot:\n\nGenerate a plot of mpg vs. weight from mtcars\nAsk the model to interpret it\nDiscuss what it got right and where it leaned on priors\n\n\n\n\n\n  \n    −\n    +\n \n 05:00"
   },
   {
     "objectID": "slides/03-prompt-engineering.html#your-turn-1",
     "href": "slides/03-prompt-engineering.html#your-turn-1",
     "title": "Prompt engineering and RAG",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 10-plot-noise:\n\nReplace the plot with random noise; keep the prompt the same\nSee what the model says\nPair up with a neighbor and try to steer the model into an “appropriate” interpretation of pure noise\n\n\n\n\n\n  \n    −\n    +\n \n 15:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 10-plot-noise:\n\nReplace the plot with random noise but keep the prompt the same\nSee what the model says\nPair up with a neighbor and try to steer the model into an “appropriate” interpretation of pure noise\n\n\n\n\n\n  \n    −\n    +\n \n 10:00"
   },
   {
     "objectID": "slides/03-prompt-engineering.html#system-prompt-best-practices",
@@ -396,21 +389,21 @@
     "href": "slides/03-prompt-engineering.html#your-turn-2",
     "title": "Prompt engineering and RAG",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 11-quiz-game-app and write the system prompt for our quiz game show. The app reads your prompt from 11-quiz-game-prompt.md; run it to play.\n\n\n\n\n  \n    −\n    +\n \n 15:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\n\nOpen 11-quiz-game-app and write the system prompt for our quiz game show\nThe app reads your prompt from 11-quiz-game-prompt.md (edit with your own quiz show design)\nRun it to play the game!\n\n\n\n\n\n  \n    −\n    +\n \n 10:00"
   },
   {
     "objectID": "slides/03-prompt-engineering.html#context-in-better-answers-out",
     "href": "slides/03-prompt-engineering.html#context-in-better-answers-out",
     "title": "Prompt engineering and RAG",
-    "section": "Context in, better answers out",
-    "text": "Context in, better answers out\n\n“Retrieval-Augmented Generation” without any fancy infrastructure\nStuff the relevant docs into the prompt yourself\nMost “RAG” is this idea plus automation"
+    "section": "Context in, better answers out!",
+    "text": "Context in, better answers out!\n\n“Retrieval-Augmented Generation” without any fancy infrastructure\nStuff the relevant docs into the prompt yourself\nMost of what people mean when they say “RAG” is this idea plus automation"
   },
   {
     "objectID": "slides/03-prompt-engineering.html#your-turn-3",
     "href": "slides/03-prompt-engineering.html#your-turn-3",
     "title": "Prompt engineering and RAG",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 12-coding-assistant and try a coding assistant on a niche package (R: weathR, Python: NWS):\n\nFirst, ask with no context and note what goes wrong.\nThen paste the README into the prompt and compare.\n\n\n\n\n\n  \n    −\n    +\n \n 10:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 12-coding-assistant and try a coding assistant on a niche package (weathR for R, NWS for Python):\n\nFirst, ask with no context and note what goes wrong\nThen paste the README into the prompt and compare\n\n\n\n\n\n  \n    −\n    +\n \n 10:00"
   },
   {
     "objectID": "slides/03-prompt-engineering.html#how-rag-actually-works",
@@ -420,11 +413,11 @@
     "text": "How RAG actually works\n\nChunk your documents\nCompute embeddings for each chunk\nAt query time, find the most similar chunks and add them to the prompt\nThe “retrieval” is just nearest-neighbor search"
   },
   {
-    "objectID": "slides/03-prompt-engineering.html#your-turn-4",
-    "href": "slides/03-prompt-engineering.html#your-turn-4",
+    "objectID": "slides/03-prompt-engineering.html#demo",
+    "href": "slides/03-prompt-engineering.html#demo",
     "title": "Prompt engineering and RAG",
-    "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 13-rag and build a dynamic RAG system:\n\nSource documents: R for Data Science (R) or Polars Cookbook (Python).\nTools: ragnar (R), llama-index or chatlas helpers (Python).\nWire retrieval up as a tool the model can call.\n\n\n\n\n\n  \n    −\n    +\n \n 20:00"
+    "section": "Demo",
+    "text": "Demo\n\n\n\nDemo\n\n\nA dynamic RAG system over the R for Data Science book: chunk, embed, and let the model retrieve relevant passages on demand.\n# demo/03-rag/03-rag.qmd\nragnar_register_tool_retrieve(chat, store, top_k = 10)\nlive_browser(chat)"
   },
   {
     "objectID": "slides/05-ai-coding-assistants.html#what-well-cover-today",

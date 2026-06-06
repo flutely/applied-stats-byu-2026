@@ -61,7 +61,7 @@ Open `09-plot-interpret` and ask the model about a plot:
 -   Discuss what it got right and where it leaned on priors
 :::
 
-{{< countdown minutes=10 >}}
+{{< countdown minutes=5 >}}
 
 ## Your turn
 
@@ -71,12 +71,12 @@ Open `09-plot-interpret` and ask the model about a plot:
 
 Open `10-plot-noise`:
 
--   Replace the plot with random noise; keep the prompt the same
+-   Replace the plot with random noise but keep the prompt **the same**
 -   See what the model says
 -   Pair up with a neighbor and try to steer the model into an "appropriate" interpretation of pure noise
 :::
 
-{{< countdown minutes=15 >}}
+{{< countdown minutes=10 >}}
 
 ## System prompt best practices
 
@@ -91,17 +91,20 @@ Open `10-plot-noise`:
 
 ## Activity
 
-Open `11-quiz-game-app` and write the system prompt for our quiz game show. The app reads your prompt from `11-quiz-game-prompt.md`; run it to play.
+- Open `11-quiz-game-app` and write the system prompt for our quiz game show
+- The app reads your prompt from `11-quiz-game-prompt.md` (edit with your own quiz show design)
+- Run it to play the game!
 :::
 
-{{< countdown minutes=15 >}}
+{{< countdown minutes=10 >}}
 
 # Manual RAG {background-image="../images/undraw_ai-research-assistant_cxx0.svg" background-size="auto 50%" background-position="82% 85%" background-repeat="no-repeat"}
-## Context in, better answers out
+
+## Context in, better answers out!
 
 -   "Retrieval-Augmented Generation" without any fancy infrastructure
 -   Stuff the relevant docs into the prompt yourself
--   Most "RAG" is this idea plus automation
+-   Most of what people mean when they say "RAG" is this idea plus automation
 
 ## Your turn
 
@@ -109,10 +112,10 @@ Open `11-quiz-game-app` and write the system prompt for our quiz game show. The 
 
 ## Activity
 
-Open `12-coding-assistant` and try a coding assistant on a niche package (R: `weathR`, Python: `NWS`):
+Open `12-coding-assistant` and try a coding assistant on a niche package (`weathR` for R, `NWS` for Python):
 
--   First, ask with no context and note what goes wrong.
--   Then paste the README into the prompt and compare.
+-   First, ask with no context and note what goes wrong
+-   Then paste the README into the prompt and compare
 :::
 
 {{< countdown minutes=10 >}}
@@ -125,20 +128,21 @@ Open `12-coding-assistant` and try a coding assistant on a niche package (R: `we
 -   At query time, find the most similar chunks and add them to the prompt
 -   The "retrieval" is just nearest-neighbor search
 
-## Your turn
+## Demo
 
 ::: {.callout-note icon=false}
 
-## Activity
+## Demo
 
-Open `13-rag` and build a dynamic RAG system:
+A dynamic RAG system over the R for Data Science book: chunk, embed, and let the model retrieve relevant passages on demand.
 
--   Source documents: R for Data Science (R) or Polars Cookbook (Python).
--   Tools: `ragnar` (R), `llama-index` or chatlas helpers (Python).
--   Wire retrieval up as a tool the model can call.
+```r
+# demo/03-rag/03-rag.qmd
+ragnar_register_tool_retrieve(chat, store, top_k = 10)
+live_browser(chat)
+```
+
 :::
-
-{{< countdown minutes=20 >}}
 
 # Thanks!
 

@@ -173,17 +173,36 @@
 <section id="letting-the-model-use-your-functions" class="slide level2">
 <h2>Letting the model use your functions</h2>
 <ul>
-<li>The model decides when to call; you decide what is callable</li>
+<li>The model decides when to call but <strong>you</strong> decide what is callable</li>
 <li>The shape: function name, description, JSON schema for arguments</li>
 <li>You execute the function and send the result back</li>
 </ul>
 </section>
-<section id="demos" class="slide level2">
-<h2>Demos</h2>
-<ul>
-<li>Manual loop (<code>demo/04-manual-tools</code>): see every step</li>
-<li>Automatic loop (<code>demo/04-weather-tool</code>): let the library handle the round trips</li>
-</ul>
+<section id="tool-calling-1" class="slide level2">
+<h2>Tool calling</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Demo</strong></p>
+</div>
+<div class="callout-content">
+<p>TODO for 04-manual-tools</p>
+</div>
+</div>
+</div>
+</section>
+<section id="tool-calling-2" class="slide level2">
+<h2>Tool calling</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Demo</strong></p>
+</div>
+<div class="callout-content">
+<p>Automatic loop (<code>demo/04-weather-tool</code>): let the library handle the round trips</p>
+</div>
+</div>
+</div>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn</h2>
@@ -195,14 +214,14 @@
 <div class="callout-content">
 <p>Open <code>14-quiz-game-tools</code> and wire tool calling into the quiz show app:</p>
 <ul>
-<li>Provide a function that plays a sound (R: <code>beepr</code>, Python: <code>playsound</code>).</li>
-<li>Document it well and register it as a tool in the quiz show app.</li>
-<li>Watch the model learn when to play which sound.</li>
+<li>Provide a function that plays a sound (R: <code>beepr</code>, Python: <code>playsound</code>)</li>
+<li>Document it well and register it as a tool in the quiz show app</li>
+<li>Watch the model learn when to play which sound</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="timer_14c87c51301d83784dc96e5530809f7e7817fec1" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c2a056950ef6a70cba5e0ee15e5b50ff29e1f61c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -233,15 +252,15 @@
 <div class="callout-content">
 <p>Open <code>15-quiz-game-ui</code> and progressively upgrade the quiz show app:</p>
 <ul>
-<li>Add tool annotations: give each tool an icon and title.</li>
-<li>Return a <code>ContentToolResult</code> with a custom title and icon.</li>
-<li>Track answers and score in reactive value boxes that update from tool calls.</li>
-<li>(Optional) Add a “finish round” tool that displays the final score.</li>
+<li>Add tool annotations: give each tool an icon and title</li>
+<li>Return a <code>ContentToolResult</code> with a custom title and icon</li>
+<li>Track answers and score in reactive value boxes that update from tool calls</li>
+<li>(Optional) Add a “finish round” tool that displays the final score</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="timer_14c87c51301d83784dc96e5530809f7e7817fec1" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c2a056950ef6a70cba5e0ee15e5b50ff29e1f61c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -250,16 +269,34 @@
  </div>
 </section></section>
 <section>
-<section id="mcp" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
-<h1>MCP</h1>
+<section id="mcp-agents-and-more" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>MCP, agents, and more</h1>
 
 </section>
-<section id="model-context-protocol" class="slide level2">
-<h2>Model Context Protocol</h2>
+<section id="a-preview-of-day-2" class="slide level2">
+<h2>A preview of Day 2</h2>
 <ul>
-<li>A common standard for exposing tools and resources to LLM clients</li>
-<li>Why this matters: write a server once, use it from many clients</li>
-<li>MCP support is growing in Positron, VS Code, Claude Desktop, etc.</li>
+<li><strong>Model Context Protocol:</strong> a common standard for exposing tools and resources to LLM clients
+<ul>
+<li>Write a server once, use it from many clients (Positron, VS Code, Claude Desktop, …)</li>
+</ul></li>
+<li><strong>Agent:</strong> an LLM with a read tool and a write tool
+<ul>
+<li>Autonomous, long-context, minimal intervention</li>
+</ul></li>
+<li>We pick both of these up tomorrow, wiring MCP servers into an AI coding assistant and understanding agents</li>
+</ul>
+</section></section>
+<section>
+<section id="querychat" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>querychat</h1>
+
+</section>
+<section id="chatting-with-your-data" class="slide level2">
+<h2>Chatting with your data</h2>
+<ul>
+<li>A drop-in Shiny module that turns a data frame into a chat-driven explorer</li>
+<li>The model writes the SQL or dplyr, and the app runs it!</li>
 </ul>
 </section>
 <section id="your-turn-2" class="slide level2">
@@ -270,60 +307,11 @@
 <p><strong>Activity</strong></p>
 </div>
 <div class="callout-content">
-<p>Open <code>17-mcp</code> and connect an MCP server to ellmer or chatlas:</p>
-<ul>
-<li>Options to try: ArXiV, fetcher, git-ingest, github, context7.</li>
-<li>Notice: the model now has access to tools you did not write.</li>
-</ul>
+<p>Open <code>16-querychat</code> and add querychat to an existing Shiny app.</p>
 </div>
 </div>
 </div>
-<div id="timer_14c87c51301d83784dc96e5530809f7e7817fec1" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-</section></section>
-<section>
-<section id="agents" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
-<h1>Agents</h1>
-
-</section>
-<section id="a-glimpse-of-whats-next" class="slide level2">
-<h2>A glimpse of what’s next</h2>
-<ul>
-<li>Short definition (Hadley / Simon Willison): an LLM with a read tool and a write tool</li>
-<li>Autonomous, long-context, minimal intervention</li>
-<li>This is the whole story of Day 2, we go deep on agents tomorrow</li>
-</ul>
-</section></section>
-<section>
-<section id="querychat-bonus" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
-<h1>querychat (bonus)</h1>
-
-</section>
-<section id="chatting-with-your-data" class="slide level2">
-<h2>Chatting with your data</h2>
-<ul>
-<li>A drop-in Shiny module that turns a data frame into a chat-driven explorer</li>
-<li>The model writes the SQL or dplyr; the app runs it</li>
-</ul>
-</section>
-<section id="your-turn-3" class="slide level2">
-<h2>Your turn</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Activity</strong></p>
-</div>
-<div class="callout-content">
-<p><em>Bonus, if time allows.</em> Open <code>16-querychat</code> and add querychat to an existing Shiny app.</p>
-</div>
-</div>
-</div>
-<div id="timer_14c87c51301d83784dc96e5530809f7e7817fec1" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c2a056950ef6a70cba5e0ee15e5b50ff29e1f61c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -332,27 +320,25 @@
  </div>
 </section></section>
 <section>
-<section id="the-future-of-ai" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
-<h1>The future of AI</h1>
+<section id="where-are-we-headed" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>Where are we headed?</h1>
 
 </section>
 <section id="hopes-and-fears" class="slide level2">
 <h2>Hopes and fears</h2>
 <ul>
 <li>Where these tools seem to be going</li>
-<li>What to watch out for: cost, lock-in, evaluation, trust</li>
-<li>Open discussion: what does this change about your day-to-day work?</li>
+<li>What to watch out for
+<ul>
+<li>Cost, lock-in, evaluation, trust</li>
+</ul></li>
+<li>What do these tools change about your day-to-day work? How can you build on them?</li>
+<li>What we will pick up on Day 2
+<ul>
+<li>Build <em>with</em> AI</li>
+</ul></li>
 </ul>
 </section></section>
-<section id="wrap-up" class="title-slide slide level1 center" data-background-image="../images/undraw_artificial-intelligence_43qa.svg" data-background-size="auto 55%" data-background-position="82% 85%" data-background-repeat="no-repeat">
-<h1>Wrap-up</h1>
-<ul>
-<li>Feedback survey</li>
-<li>What we will pick up on Day 2 (Build <em>with</em> AI)</li>
-<li>Thanks!</li>
-</ul>
-</section>
-
 <section id="thanks" class="title-slide slide level1 center">
 <h1>Thanks!</h1>
 <center>

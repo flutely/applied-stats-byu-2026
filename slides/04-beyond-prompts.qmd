@@ -44,14 +44,27 @@ format:
 # Tool calling {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
 ## Letting the model use your functions
 
--   The model decides when to call; you decide what is callable
+-   The model decides when to call but **you** decide what is callable
 -   The shape: function name, description, JSON schema for arguments
 -   You execute the function and send the result back
 
-## Demos
+## Tool calling
 
--   Manual loop (`demo/04-manual-tools`): see every step
--   Automatic loop (`demo/04-weather-tool`): let the library handle the round trips
+::: {.callout-note icon=false}
+
+## Demo
+
+ TODO for 04-manual-tools
+:::
+
+## Tool calling
+
+::: {.callout-note icon=false}
+
+## Demo
+
+Automatic loop (`demo/04-weather-tool`): let the library handle the round trips
+:::
 
 ## Your turn
 
@@ -61,14 +74,15 @@ format:
 
 Open `14-quiz-game-tools` and wire tool calling into the quiz show app:
 
--   Provide a function that plays a sound (R: `beepr`, Python: `playsound`).
--   Document it well and register it as a tool in the quiz show app.
--   Watch the model learn when to play which sound.
+-   Provide a function that plays a sound (R: `beepr`, Python: `playsound`)
+-   Document it well and register it as a tool in the quiz show app
+-   Watch the model learn when to play which sound
 :::
 
 {{< countdown minutes=20 >}}
 
 # Tool calling UI {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
+
 ## Showing tool activity to users
 
 -   Tool annotations can give each tool an icon and title
@@ -83,48 +97,30 @@ Open `14-quiz-game-tools` and wire tool calling into the quiz show app:
 
 Open `15-quiz-game-ui` and progressively upgrade the quiz show app:
 
--   Add tool annotations: give each tool an icon and title.
--   Return a `ContentToolResult` with a custom title and icon.
--   Track answers and score in reactive value boxes that update from tool calls.
--   (Optional) Add a "finish round" tool that displays the final score.
+-   Add tool annotations: give each tool an icon and title
+-   Return a `ContentToolResult` with a custom title and icon
+-   Track answers and score in reactive value boxes that update from tool calls
+-   (Optional) Add a "finish round" tool that displays the final score
 :::
 
 {{< countdown minutes=20 >}}
 
-# MCP {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
-## Model Context Protocol
+# MCP, agents, and more {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
 
--   A common standard for exposing tools and resources to LLM clients
--   Why this matters: write a server once, use it from many clients
--   MCP support is growing in Positron, VS Code, Claude Desktop, etc.
+## A preview of Day 2
 
-## Your turn
+-   **Model Context Protocol:** a common standard for exposing tools and resources to LLM clients
+    -   Write a server once, use it from many clients (Positron, VS Code, Claude Desktop, ...)
+-   **Agent:** an LLM with a read tool and a write tool
+    -   Autonomous, long-context, minimal intervention
+-   We pick both of these up tomorrow, wiring MCP servers into an AI coding assistant and understanding agents
 
-::: {.callout-note icon=false}
+# querychat {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
 
-## Activity
-
-Open `17-mcp` and connect an MCP server to ellmer or chatlas:
-
--   Options to try: ArXiV, fetcher, git-ingest, github, context7.
--   Notice: the model now has access to tools you did not write.
-:::
-
-{{< countdown minutes=15 >}}
-
-# Agents {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
-
-## A glimpse of what's next
-
--   Short definition (Hadley / Simon Willison): an LLM with a read tool and a write tool
--   Autonomous, long-context, minimal intervention
--   This is the whole story of Day 2, we go deep on agents tomorrow
-
-# querychat (bonus) {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
 ## Chatting with your data
 
 -   A drop-in Shiny module that turns a data frame into a chat-driven explorer
--   The model writes the SQL or dplyr; the app runs it
+-   The model writes the SQL or dplyr, and the app runs it!
 
 ## Your turn
 
@@ -132,24 +128,21 @@ Open `17-mcp` and connect an MCP server to ellmer or chatlas:
 
 ## Activity
 
-*Bonus, if time allows.* Open `16-querychat` and add querychat to an existing Shiny app.
+Open `16-querychat` and add querychat to an existing Shiny app.
 :::
 
 {{< countdown minutes=10 >}}
 
-# The future of AI {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
+# Where are we headed? {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
+
 ## Hopes and fears
 
 -   Where these tools seem to be going
--   What to watch out for: cost, lock-in, evaluation, trust
--   Open discussion: what does this change about your day-to-day work?
-
-# Wrap-up {background-image="../images/undraw_artificial-intelligence_43qa.svg" background-size="auto 55%" background-position="82% 85%" background-repeat="no-repeat"}
-
--   Feedback survey
--   What we will pick up on Day 2 (Build *with* AI)
--   Thanks!
-
+-   What to watch out for
+    - Cost, lock-in, evaluation, trust
+-   What do these tools change about your day-to-day work? How can you build on them?
+-   What we will pick up on Day 2
+    - Build *with* AI
 
 # Thanks!
 
