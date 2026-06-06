@@ -1,0 +1,69 @@
+---
+title: "Weather tool"
+subtitle: "Demo for deck 04: Beyond prompts"
+format: html
+---
+
+Take an ordinary function that fetches a weather forecast, turn it into a tool,
+and let Claude call it on demand. This is the "automatic" tool-calling loop: the
+model decides to call the tool, and `chatlas` runs it and feeds the result back.
+
+Run the chunks interactively. Needs `ANTHROPIC_API_KEY` in your environment and
+the `NWS` package for forecasts.
+
+## A plain weather function
+
+We can already get a forecast with the `NWS` package, no LLM involved.
+
+```{python}
+import NWS
+
+provo = {"lat": "40.2338", "lon": "-111.6585"}
+
+# Initiate the NWS API
+NWS.InitiateAPI("SIAS 2026", "julia.silge@posit.co")
+
+# Forecast for the SIAS 2026 location
+forecast = NWS.GetCurrentForecast(provo["lat"], provo["lon"])
+forecast
+```
+
+## Turn it into a tool
+
+A tool is just a function with a clear docstring describing what it does and its
+arguments. `chatlas` reads the docstring to build the schema the model sees.
+
+```{python}
+def get_weather(lat: float, lon: float):
+    """
+    Get forecast data for a specific latitude and longitude.
+
+    Parameters
+    ----------
+    lat : str
+        Latitude of the location.
+    lon : str
+        Longitude of the location.
+    """
+    return NWS.GetCurrentForecast(lat, lon)
+```
+
+It is still an ordinary callable:
+
+```{python}
+get_weather(provo["lat"], provo["lon"])
+```
+
+## Let the model call it
+
+Register the tool on a Claude chat, then ask a question. When the model needs the
+weather it calls `get_weather` itself, and `chatlas` handles the round trip.
+
+```{python}
+import chatlas
+
+chat = chatlas.ChatAnthropic()
+chat.register_tool(get_weather)
+
+chat.chat("What should I wear to SIAS 2026 in Provo, UT?")
+```
