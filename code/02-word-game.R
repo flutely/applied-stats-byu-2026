@@ -16,11 +16,11 @@ chat <- chat_anthropic(
 )
 
 # Ask the first question:
-____("In British English, guess the word for the person who lives next door.")
+chat$chat("In British English, guess the word for the person who lives next door.")
 
 # Ask the second question:
-____("What helps a car move smoothly down the road?")
+chat$chat("What helps a car move smoothly down the road?")
 
 # %% Compare with...
 chat2 <- chat_anthropic()
-chat2$____
+chat2$chat("What helps a car move smoothly down the road?")
