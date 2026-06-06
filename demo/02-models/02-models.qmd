@@ -1,0 +1,95 @@
+---
+title: "Choosing a Model"
+subtitle: "Demo for deck 02: Programming with LLMs"
+format: html
+---
+
+Instructor demo: send the same prompt to several providers and compare the
+answers, latency, and token usage. Switching providers is a one-string change.
+
+Participants only have Anthropic set up, so this runs as a demo. To compare
+providers you need an API key for each one in your `.Renviron`
+(`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GOOGLE_API_KEY`, ...). Comment out any
+provider you have not configured; Ollama needs a local server running.
+
+Run this interactively (Positron or RStudio), one chunk at a time, rather than
+rendering the whole document.
+
+```{r}
+#| label: setup
+#| message: false
+library(ellmer)
+library(tidyverse)
+```
+
+## List available models
+
+Each provider has a `models_*()` helper that lists its available models. In
+Positron, `View()` gives a sortable table.
+
+```{r}
+models_anthropic()
+```
+
+```{r}
+models_openai()
+```
+
+```{r}
+models_google_gemini()
+```
+
+## One prompt, many providers
+
+Switch providers by changing **one string**, of the form `"provider/model"`.
+
+```{r}
+prompt <- "Write a recipe for an easy weeknight dinner my kids would like."
+```
+
+```{r}
+chat("anthropic/claude-sonnet-4-6")$chat(prompt)
+```
+
+```{r}
+chat("openai/gpt-5")$chat(prompt)
+```
+
+```{r}
+chat("google_gemini/gemini-2.5-flash")$chat(prompt)
+```
+
+## Compare latency and token usage
+
+`ellmer` records token counts on each assistant turn; we time the call ourselves
+for latency.
+
+```{r}
+compare_model <- function(model, prompt) {
+  ch <- chat(model, echo = "none")
+  elapsed <- system.time(ch$chat(prompt, echo = "none"))[["elapsed"]]
+  tokens <- ch$last_turn()@tokens
+  tibble(
+    model = model,
+    seconds = round(elapsed, 1),
+    input_tokens = tokens[[1]],
+    output_tokens = tokens[[2]]
+  )
+}
+
+models <- c(
+  "anthropic/claude-haiku-4-5",
+  "anthropic/claude-sonnet-4-6",
+  "anthropic/claude-opus-4-8",
+  "openai/gpt-5",
+  "google_gemini/gemini-2.5-flash"
+)
+
+results <-
+  models |>
+  map(compare_model, prompt = prompt) |>
+  list_rbind() |>
+  arrange(seconds)
+
+results
+```
