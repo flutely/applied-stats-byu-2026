@@ -30,7 +30,7 @@ At the end of this workshop, participants will understand how to:
 We will be working locally during the workshop, so please come with a laptop that has the following installed (all available for free):
 
 - A recent version of Python (perhaps installed using [uv](https://docs.astral.sh/uv/guides/install-python/)) and/or R
-- A recent version of your IDE of choice, such as [Positron](https://positron.posit.co/download), [RStudio](https://posit.co/download/rstudio-desktop), or [VS Code](https://code.visualstudio.com/Download)
+- A recent version of [Positron](https://positron.posit.co/download), or optionally if preferred, [RStudio](https://posit.co/download/rstudio-desktop)
 - Clone the [workshop repo](https://github.com/juliasilge/applied-stats-byu-2026)
 - Install the Python packages from `requirements.txt` and/or the R packages via TODO.
 
