@@ -20,30 +20,183 @@ format:
       data-background-repeat: "no-repeat"
 ---
 
-# Day 2: Build with AI {background-image="../images/undraw_coding-assistant_i178.svg" background-size="auto 40%" background-position="82% 85%" background-repeat="no-repeat"}
-## What we'll cover today
+# Hello!
 
-1.  Intro to AI coding assistants
-2.  Code completions and inline suggestions
-3.  Chat-based assistance
-4.  Agentic and autonomous workflows
+<center>
 
-## The landscape of options
+<img src="https://github.com/juliasilge.png" style="border-radius: 50%;" width="300px"/>
 
-TODO
+[{{< fa brands github >}} \@juliasilge](https://github.com/juliasilge)
 
-## Modes: completion, chat, agent
+[{{< fa brands bluesky >}} \@juliasilge.com](https://bsky.app/profile/juliasilge.com)
 
-TODO
+[{{< fa link >}} juliasilge.com](https://juliasilge.com/)
 
-## Cost considerations
+</center>
 
-TODO
+## Day 2: Build with AI
+
+1.  Intro to AI coding assistants (this session!)
+2.  Working in your editor
+3.  Steering and extending
+4.  Agentic workflows
+
+## Where we left off
+
+-   Yesterday we ended by sitting with the tension of real promise and also real harms
+-   Today we go deeper into the most powerful (and most fraught!) way to work
+-   The plan: let's stay honest and stay in control
+
+## From "build on" to "build with"
+
+-   **Day 1:** you wrote code that calls LLMs (`ellmer` / `chatlas`)
+-   **Day 2:** AI assistants help you write and run code, on your own data
+-   Same models, a new way of working
+
+# A ladder of context {background-image="../images/undraw_coding-assistant_i178.svg" background-size="auto 40%" background-position="82% 85%" background-repeat="no-repeat"}
+
+## How most of us start
+
+-   **Web chat:** paste text into ChatGPT and copy paste back
+-   **Chat in your editor:** assistant can see your files, session, and errors
+-   **Inline completions:** assistant suggests code right where you are typing
+-   **Agents:** fetch their own context and act in a loop
+-   Going up the ladder, the assistant sees more of your world
 
 ## When to reach for which
 
-TODO
+-   **Web chat:** quick, throwaway questions (or maybe never?)
+-   **Editor chat:** questions and edits grounded in your real code
+-   **Completions:** small and in-flow where you stay fully in control
+-   **Agents:** multi-step work you would otherwise do by hand
+-   Two dials, not one
+    -   How much it *sees*
+    -   How much it *does*
 
+# What is an agent? {background-image="../images/undraw_coding-assistant_i178.svg" background-size="auto 40%" background-position="82% 85%" background-repeat="no-repeat"}
+
+## An LLM in a harness
+
+-   We built up to this yesterday by learning about turns, conversations, tools
+-   **Harness:** the program that wraps the model and runs its tools
+    -   a web chat, an assistant in your editor, a command-line tool
+-   **Agent:** an LLM in a harness that calls tools *in a loop*, deciding each step from the last result
+-   An agent needs a *read* tool (to observe) and a *write* tool (to act)
+
+::: footer
+["What is an Agent?" by Hadley Wickham](https://tidydesign.substack.com/p/what-is-an-agent)
+:::
+
+## The question that follows us
+
+-   An agent is not useful unless it can take actions on your behalf
+-   But how do you know it is taking the *right* actions?
+-   We will keep returning to this all day: read vs. write, plans, tests, control
+
+# Meet Posit Assistant {background-image="../images/undraw_coding-assistant_i178.svg" background-size="auto 40%" background-position="82% 85%" background-repeat="no-repeat"}
+
+## One assistant, many surfaces
+
+-   A data-science assistant for **Positron, RStudio, and the terminal**
+-   Bring your own LLM
+    - We'll continue to use Anthropic in our workshop
+-   It knows about your R or Python session
+    - For example, it can inspect your data frames and their schemas
+-   We'll use Posit Assistant for three things
+    - Explore your data
+    - Build a dashboard
+    - Debug and fix code
+
+## The top of the ladder, in one tool
+
+-   Editor chat, completions, and a full agentic loop, all in one place
+-   No more copy-pasting from a browser
+-   This is the tool we will use all day
+-   One assistant, one dataset, climbing from assisted to autonomous
+
+## Setting up Posit Assistant
+
+-   If you are using RStudio, you will need to sign up for Posit AI
+    - Free trial for Posit AI should cover your workshop usage today
+    - Read docs at <https://posit-dev.github.io/assistant/docs/downloads/rstudio/>
+-   If you are using Positron, you can use the workshop-provided Anthropic API key _or_ sign up for Posit AI
+    - Read docs at <https://posit-dev.github.io/assistant/docs/downloads/positron/>
+
+## Your turn
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Get set up with Posit Assistant:
+
+-   Open Positron or RStudio and enable Posit Assistant
+-   Configure your model provider
+-   Confirm it responds: ask it to say hello
+:::
+
+{{< countdown minutes=10 >}}
+
+# Cost and context {background-image="../images/undraw_coding-assistant_i178.svg" background-size="auto 40%" background-position="82% 85%" background-repeat="no-repeat"}
+
+## Remember tokens?
+
+-   Every turn replays the whole conversation and you pay per token
+-   Cached input is cheap and the **output tokens** are the expensive part
+-   Agents have long conversations, so this matters even more
+-   `/context` shows your usage
+-   `/compact` summarizes to save tokens
+
+## Context is the key to good help
+
+-   The assistant works best with high-signal context
+-   It already sees your environment including data, plots, errors
+-   So **let it fetch** what it needs; do not paste everything
+-   Give it what matters, trim what does not
+
+::: {.callout-note icon=false}
+
+## Demo
+
+How do cached input vs. output tokens drive the cost of a long, agentic conversation?
+
+Walk through Simon's [interactive cost explainer](https://beautiful-buttercream-3183c6.netlify.app/)
+
+:::
+
+# First contact {background-image="../images/undraw_coding-assistant_i178.svg" background-size="auto 40%" background-position="82% 85%" background-repeat="no-repeat"}
+
+## Our dataset: Utah crashes
+
+-   About 250,000 crashes, 2016 to 2019, from the [Utah Open Data Portal](https://opendata.utah.gov/Transportation/Utah-Crash-Data-2020/herb-zqda/)
+-   Severity, location, and risk factors
+    -   DUI, distraction, night, teen driver, and more
+-   We will explore it, build on it, and (carefully) let an agent loose on it
+
+## Your turn
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Start a chat with Posit Assistant and let it do the loading:
+
+-   Ask: *"Read `data/utah-crash-data-2020.parquet` and tell me what is in it. What are the columns, and what might be interesting to explore?"*
+-   Notice that it loads and inspects the data itself and you do not need to paste anything
+-   Try a follow-up question about something it mentions
+:::
+
+{{< countdown minutes=10 >}}
+
+## The rest of today
+
+-   **Working in your editor:**
+    - Completions, chat, explore and debug
+-   **Steering and extending:**
+    - Plans, memory, skills, and MCP
+-   **Agentic workflows:**
+    - More autonomy, with guardrails and reproducible output
+-   From assisted to autonomous, one crash dataset the whole way
 
 # Thanks!
 
@@ -60,5 +213,5 @@ TODO
 </center>
 
 ::: footer
-Illustrations from [unDraw](https://undraw.co/) 
+Illustrations from [unDraw](https://undraw.co/)
 :::
