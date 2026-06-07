@@ -5,12 +5,25 @@ Workshop materials for the **50th Summer Institute of Applied Statistics (SIAS)*
 - Day 1, "Build on AI": programming with LLMs from R (`ellmer`) and Python (`chatlas`). Four sessions: (1) Talking with LLMs, (2) Programming with LLMs, (3) Prompt engineering and RAG, (4) Beyond prompts (tool calling, MCP, an agents teaser, querychat as a bonus).
 - Day 2, "Build with AI": using AI coding assistants (inline completions, chat, agentic). Currently mostly TODO placeholders.
 
+## Status and next steps
+
+**Day 1 (decks 01-04) is built out** and Anthropic-only for participants: slides, exercises, and demos are in place (the OpenAI / multi-provider exceptions are the three demos listed under Demos below).
+
+**Day 2 (decks 05-08) is the next work, start here.** The decks exist as slide skeletons (section headings, but no `## Your turn` activities or demos yet) and need building out. Day 2 is "Build with AI": AI coding assistants (Positron Assistant, inline completions, chat, agentic workflows), where MCP and agents (previewed on Day 1) get their full treatment. There are no Day-2 exercises in `code/` or demos in `demo/` yet.
+
+Open items:
+
+- `code/15-querychat.{R,py}` is the only remaining Day-1 placeholder (still `TODO`), waiting on a dataset; when it is filled, add `querychat` to `requirements.txt`.
+- MCP is a Day-1 preview only; the `17-mcp` exercise was removed. Build the real MCP material into Day 2.
+- The agentic "databot" demo was removed, to be rebuilt for Day 2 (deck 08).
+- Verification gap: the Shiny apps and `.qmd` demos are checked by parse/compile and API introspection, not a live run. Do a local smoke test (`shiny run` / `runApp` / run the `.qmd` chunks) before the workshop. `faicons` and `playsound3` are listed in `requirements.txt` but were not installed in this dev env.
+
 ## Layout
 
 - `index.qmd`: landing page with welcome, learning objectives, local-setup prep, and a per-day schedule table.
 - `slides/`: eight numbered reveal.js decks (`01-talking-with-llms.qmd` ... `08-agentic-workflows.qmd`) plus `custom.scss` and `title-slide.html` (custom partial).
-- `code/`: flat `NN-name.R` / `NN-name.py` exercise skeletons (17 exercises, R + Python pairs), plus companion Shiny apps (`08-batch-app`, `11-quiz-game-app`) and `11-quiz-game-prompt.md`. Header comments are `# NN-name.ext` then `# Deck NN: <deck title> (<section>)`.
-- `demo/`: instructor-run demo apps and docs, one folder per demo, prefixed by the deck number it supports (`01-clearbot`, `01-token-possibilities`, `02-models`, `04-manual-tools`, `04-weather-tool`). Slides point at these via `## Demo` callouts.
+- `code/`: flat `NN-name.R` / `NN-name.py` Day-1 exercise skeletons (R + Python pairs), numbered `01`-`15`, gapless. (RAG became `demo/03-rag` and the MCP exercise was dropped, so the deck-04 exercises were renumbered to close the gaps; MCP is a Day-1 preview only.) Plus companion Shiny apps (`08-batch-app`, `11-quiz-game-app`), the quiz prompt (`11-quiz-game-prompt.md`), and coding-assistant context docs (`12-coding-assistant-docs-{py,rstats}.md`). Header comments are `# NN-name.ext` then `# Deck NN: <deck title> (<section>)`.
+- `demo/`: instructor-run demo apps and docs, one folder per demo, prefixed by the deck number it supports (`01-clearbot`, `01-token-possibilities`, `02-models`, `03-rag`, `04-manual-tools`, `04-weather-tool`). Slides point at these via `## Demo` callouts.
 - `data/`: shared data for exercises. `recipes/` (`images/`, `pdf/`, `text/`) feeds the multi-modal, structured-output, and batch exercises; `mtcars.csv` feeds the plot-interpretation exercises.
 - `images/`: 8 unDraw SVG illustrations, one per deck. Mapping is fixed; see deck YAML `data-background-image`.
 - `_extensions/`: `gadenbuie/countdown` (timer shortcode) and `quarto-ext/fontawesome`.

@@ -88,7 +88,7 @@
     "href": "slides/04-beyond-prompts.html#your-turn",
     "title": "Beyond prompts",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 14-quiz-game-tools and wire tool calling into the quiz show app:\n\nProvide a function that plays a sound (R: beepr, Python: playsound)\nDocument it well and register it as a tool in the quiz show app\nWatch the model learn when to play which sound\n\n\n\n\n\n  \n    −\n    +\n \n 20:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 13-quiz-game-tools and wire tool calling into the quiz show app:\n\nProvide a function that plays a sound (R: beepr, Python: playsound)\nDocument it well and register it as a tool in the quiz show app\nWatch the model learn when to play which sound\n\n\n\n\n\n  \n    −\n    +\n \n 20:00"
   },
   {
     "objectID": "slides/04-beyond-prompts.html#showing-tool-activity-to-users",
@@ -102,7 +102,7 @@
     "href": "slides/04-beyond-prompts.html#your-turn-1",
     "title": "Beyond prompts",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 15-quiz-game-ui and progressively upgrade the quiz show app:\n\nAdd tool annotations: give each tool an icon and title\nReturn a ContentToolResult with a custom title and icon\nTrack answers and score in reactive value boxes that update from tool calls\n(Optional) Add a “finish round” tool that displays the final score\n\n\n\n\n\n  \n    −\n    +\n \n 15:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 14-quiz-game-ui and progressively upgrade the quiz show app:\n\nAdd tool annotations: give each tool an icon and title\nReturn a ContentToolResult with a custom title and icon\nTrack answers and score in reactive value boxes that update from tool calls\n(Optional) Add a “finish round” tool that displays the final score\n\n\n\n\n\n  \n    −\n    +\n \n 15:00"
   },
   {
     "objectID": "slides/04-beyond-prompts.html#a-preview-of-day-2",
@@ -123,7 +123,7 @@
     "href": "slides/04-beyond-prompts.html#your-turn-2",
     "title": "Beyond prompts",
     "section": "Your turn",
-    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 16-querychat and add querychat to an existing Shiny app.\n\n\n\n\n  \n    −\n    +\n \n 10:00"
+    "text": "Your turn\n\n\n\nActivity\n\n\nOpen 15-querychat and add querychat to an existing Shiny app.\n\n\n\n\n  \n    −\n    +\n \n 10:00"
   },
   {
     "objectID": "slides/04-beyond-prompts.html#hopes-and-fears",

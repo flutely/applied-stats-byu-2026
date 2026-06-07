@@ -1,4 +1,4 @@
-# 15-quiz-game-ui.py
+# 14-quiz-game-ui.py
 # Deck 04: Beyond prompts (Tool calling UI)
 # Goal: show tool activity in the app's UI:
 #   1. register an "Update Score" tool with a title and icon (tool annotations)

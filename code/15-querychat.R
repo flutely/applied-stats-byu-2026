@@ -1,4 +1,4 @@
-# 16-querychat.R
+# 15-querychat.R
 # Deck 04: Beyond prompts (querychat)
 # Goal: add querychat into an existing Shiny app so the user can chat with a
 # data frame.

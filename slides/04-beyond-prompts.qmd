@@ -90,7 +90,7 @@ chat.chat("What should I wear to SIAS 2026 in Provo, UT?")
 
 ## Activity
 
-Open `14-quiz-game-tools` and wire tool calling into the quiz show app:
+Open `13-quiz-game-tools` and wire tool calling into the quiz show app:
 
 -   Provide a function that plays a sound (R: `beepr`, Python: `playsound`)
 -   Document it well and register it as a tool in the quiz show app
@@ -113,7 +113,7 @@ Open `14-quiz-game-tools` and wire tool calling into the quiz show app:
 
 ## Activity
 
-Open `15-quiz-game-ui` and progressively upgrade the quiz show app:
+Open `14-quiz-game-ui` and progressively upgrade the quiz show app:
 
 -   Add tool annotations: give each tool an icon and title
 -   Return a `ContentToolResult` with a custom title and icon
@@ -146,7 +146,7 @@ Open `15-quiz-game-ui` and progressively upgrade the quiz show app:
 
 ## Activity
 
-Open `16-querychat` and add querychat to an existing Shiny app.
+Open `15-querychat` and add querychat to an existing Shiny app.
 :::
 
 {{< countdown minutes=10 >}}
