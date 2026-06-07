@@ -7,6 +7,8 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.38">
@@ -145,34 +147,263 @@
   </div>
 </section>
 <section>
-<section id="day-2-build-with-ai" class="title-slide slide level1 center" data-background-image="../images/undraw_coding-assistant_i178.svg" data-background-size="auto 40%" data-background-position="82% 85%" data-background-repeat="no-repeat">
-<h1>Day 2: Build with AI</h1>
-
+<section id="hello" class="title-slide slide level1 center">
+<h1>Hello!</h1>
+<center>
+<p><img src="https://github.com/juliasilge.png" style="border-radius: 50%;" width="300px"></p>
+<p><a href="https://github.com/juliasilge"><i class="fa-brands fa-github" aria-label="github"></i> @juliasilge</a></p>
+<p><a href="https://bsky.app/profile/juliasilge.com"><i class="fa-brands fa-bluesky" aria-label="bluesky"></i> @juliasilge.com</a></p>
+<p><a href="https://juliasilge.com/"><i class="fa-solid fa-link" aria-label="link"></i> juliasilge.com</a></p>
+</center>
 </section>
-<section id="what-well-cover-today" class="slide level2">
-<h2>What we’ll cover today</h2>
+<section id="day-2-build-with-ai" class="slide level2">
+<h2>Day 2: Build with AI</h2>
 <ol type="1">
-<li>Intro to AI coding assistants</li>
-<li>Code completions and inline suggestions</li>
-<li>Chat-based assistance</li>
-<li>Agentic and autonomous workflows</li>
+<li>Intro to AI coding assistants (this session!)</li>
+<li>Working in your editor</li>
+<li>Steering and extending</li>
+<li>Agentic workflows</li>
 </ol>
 </section>
-<section id="the-landscape-of-options" class="slide level2">
-<h2>The landscape of options</h2>
-<p>TODO</p>
+<section id="where-we-left-off" class="slide level2">
+<h2>Where we left off</h2>
+<ul>
+<li>Yesterday we ended by sitting with the tension of real promise and also real harms</li>
+<li>Today we go deeper into the most powerful (and most fraught!) way to work</li>
+<li>The plan: let’s stay honest and stay in control</li>
+</ul>
 </section>
-<section id="modes-completion-chat-agent" class="slide level2">
-<h2>Modes: completion, chat, agent</h2>
-<p>TODO</p>
+<section id="from-build-on-to-build-with" class="slide level2">
+<h2>From “build on” to “build with”</h2>
+<ul>
+<li><strong>Day 1:</strong> you wrote code that calls LLMs (<code>ellmer</code> / <code>chatlas</code>)</li>
+<li><strong>Day 2:</strong> AI assistants help you write and run code, on your own data</li>
+<li>Same models, a new way of working</li>
+</ul>
+</section></section>
+<section>
+<section id="a-ladder-of-context" class="title-slide slide level1 center" data-background-image="../images/undraw_coding-assistant_i178.svg" data-background-size="auto 40%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>A ladder of context</h1>
+
 </section>
-<section id="cost-considerations" class="slide level2">
-<h2>Cost considerations</h2>
-<p>TODO</p>
+<section id="how-most-of-us-start" class="slide level2">
+<h2>How most of us start</h2>
+<ul>
+<li><strong>Web chat:</strong> paste text into ChatGPT and copy paste back</li>
+<li><strong>Chat in your editor:</strong> assistant can see your files, session, and errors</li>
+<li><strong>Inline completions:</strong> assistant suggests code right where you are typing</li>
+<li><strong>Agents:</strong> fetch their own context and act in a loop</li>
+<li>Going up the ladder, the assistant sees more of your world</li>
+</ul>
 </section>
 <section id="when-to-reach-for-which" class="slide level2">
 <h2>When to reach for which</h2>
-<p>TODO</p>
+<ul>
+<li><strong>Web chat:</strong> quick, throwaway questions (or maybe never?)</li>
+<li><strong>Editor chat:</strong> questions and edits grounded in your real code</li>
+<li><strong>Completions:</strong> small and in-flow where you stay fully in control</li>
+<li><strong>Agents:</strong> multi-step work you would otherwise do by hand</li>
+<li>Two dials, not one
+<ul>
+<li>How much it <em>sees</em></li>
+<li>How much it <em>does</em></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="what-is-an-agent" class="title-slide slide level1 center" data-background-image="../images/undraw_coding-assistant_i178.svg" data-background-size="auto 40%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>What is an agent?</h1>
+
+</section>
+<section id="an-llm-in-a-harness" class="slide level2">
+<h2>An LLM in a harness</h2>
+<ul>
+<li>We built up to this yesterday by learning about turns, conversations, tools</li>
+<li><strong>Harness:</strong> the program that wraps the model and runs its tools
+<ul>
+<li>a web chat, an assistant in your editor, a command-line tool</li>
+</ul></li>
+<li><strong>Agent:</strong> an LLM in a harness that calls tools <em>in a loop</em>, deciding each step from the last result</li>
+<li>An agent needs a <em>read</em> tool (to observe) and a <em>write</em> tool (to act)</li>
+</ul>
+<div class="footer">
+<p><a href="https://tidydesign.substack.com/p/what-is-an-agent">“What is an Agent?” by Hadley Wickham</a></p>
+</div>
+</section>
+<section id="the-question-that-follows-us" class="slide level2">
+<h2>The question that follows us</h2>
+<ul>
+<li>An agent is not useful unless it can take actions on your behalf</li>
+<li>But how do you know it is taking the <em>right</em> actions?</li>
+<li>We will keep returning to this all day: read vs.&nbsp;write, plans, tests, control</li>
+</ul>
+</section></section>
+<section>
+<section id="meet-posit-assistant" class="title-slide slide level1 center" data-background-image="../images/undraw_coding-assistant_i178.svg" data-background-size="auto 40%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>Meet Posit Assistant</h1>
+
+</section>
+<section id="one-assistant-many-surfaces" class="slide level2">
+<h2>One assistant, many surfaces</h2>
+<ul>
+<li>A data-science assistant for <strong>Positron, RStudio, and the terminal</strong></li>
+<li>Bring your own LLM
+<ul>
+<li>We’ll continue to use Anthropic in our workshop</li>
+</ul></li>
+<li>It knows about your R or Python session
+<ul>
+<li>For example, it can inspect your data frames and their schemas</li>
+</ul></li>
+<li>We’ll use Posit Assistant for three things
+<ul>
+<li>Explore your data</li>
+<li>Build a dashboard</li>
+<li>Debug and fix code</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-top-of-the-ladder-in-one-tool" class="slide level2">
+<h2>The top of the ladder, in one tool</h2>
+<ul>
+<li>Editor chat, completions, and a full agentic loop, all in one place</li>
+<li>No more copy-pasting from a browser</li>
+<li>This is the tool we will use all day</li>
+<li>One assistant, one dataset, climbing from assisted to autonomous</li>
+</ul>
+</section>
+<section id="setting-up-posit-assistant" class="slide level2">
+<h2>Setting up Posit Assistant</h2>
+<ul>
+<li>If you are using RStudio, you will need to sign up for Posit AI
+<ul>
+<li>Free trial for Posit AI should cover your workshop usage today</li>
+<li>Read docs at <a href="https://posit-dev.github.io/assistant/docs/downloads/rstudio/" class="uri">https://posit-dev.github.io/assistant/docs/downloads/rstudio/</a></li>
+</ul></li>
+<li>If you are using Positron, you can use the workshop-provided Anthropic API key <em>or</em> sign up for Posit AI
+<ul>
+<li>Read docs at <a href="https://posit-dev.github.io/assistant/docs/downloads/positron/" class="uri">https://posit-dev.github.io/assistant/docs/downloads/positron/</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Activity</strong></p>
+</div>
+<div class="callout-content">
+<p>Get set up with Posit Assistant:</p>
+<ul>
+<li>Open Positron or RStudio and enable Posit Assistant</li>
+<li>Configure your model provider</li>
+<li>Confirm it responds: ask it to say hello</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="timer_103ac2e010d87ad99832b3f24ae236088041096d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section></section>
+<section>
+<section id="cost-and-context" class="title-slide slide level1 center" data-background-image="../images/undraw_coding-assistant_i178.svg" data-background-size="auto 40%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>Cost and context</h1>
+
+</section>
+<section id="remember-tokens" class="slide level2">
+<h2>Remember tokens?</h2>
+<ul>
+<li>Every turn replays the whole conversation and you pay per token</li>
+<li>Cached input is cheap and the <strong>output tokens</strong> are the expensive part</li>
+<li>Agents have long conversations, so this matters even more</li>
+<li><code>/context</code> shows your usage</li>
+<li><code>/compact</code> summarizes to save tokens</li>
+</ul>
+</section>
+<section id="context-is-the-key-to-good-help" class="slide level2">
+<h2>Context is the key to good help</h2>
+<ul>
+<li>The assistant works best with high-signal context</li>
+<li>It already sees your environment including data, plots, errors</li>
+<li>So <strong>let it fetch</strong> what it needs; do not paste everything</li>
+<li>Give it what matters, trim what does not</li>
+</ul>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Demo</strong></p>
+</div>
+<div class="callout-content">
+<p>How do cached input vs.&nbsp;output tokens drive the cost of a long, agentic conversation?</p>
+<p>Walk through Simon’s <a href="https://beautiful-buttercream-3183c6.netlify.app/">interactive cost explainer</a></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="first-contact" class="title-slide slide level1 center" data-background-image="../images/undraw_coding-assistant_i178.svg" data-background-size="auto 40%" data-background-position="82% 85%" data-background-repeat="no-repeat">
+<h1>First contact</h1>
+
+</section>
+<section id="our-dataset-utah-crashes" class="slide level2">
+<h2>Our dataset: Utah crashes</h2>
+<ul>
+<li>About 250,000 crashes, 2016 to 2019, from the <a href="https://opendata.utah.gov/Transportation/Utah-Crash-Data-2020/herb-zqda/">Utah Open Data Portal</a></li>
+<li>Severity, location, and risk factors
+<ul>
+<li>DUI, distraction, night, teen driver, and more</li>
+</ul></li>
+<li>We will explore it, build on it, and (carefully) let an agent loose on it</li>
+</ul>
+</section>
+<section id="your-turn-1" class="slide level2">
+<h2>Your turn</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Activity</strong></p>
+</div>
+<div class="callout-content">
+<p>Start a chat with Posit Assistant and let it do the loading:</p>
+<ul>
+<li>Ask: <em>“Read <code>data/utah-crash-data-2020.parquet</code> and tell me what is in it. What are the columns, and what might be interesting to explore?”</em></li>
+<li>Notice that it loads and inspects the data itself and you do not need to paste anything</li>
+<li>Try a follow-up question about something it mentions</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="timer_103ac2e010d87ad99832b3f24ae236088041096d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="the-rest-of-today" class="slide level2">
+<h2>The rest of today</h2>
+<ul>
+<li><strong>Working in your editor:</strong>
+<ul>
+<li>Completions, chat, explore and debug</li>
+</ul></li>
+<li><strong>Steering and extending:</strong>
+<ul>
+<li>Plans, memory, skills, and MCP</li>
+</ul></li>
+<li><strong>Agentic workflows:</strong>
+<ul>
+<li>More autonomy, with guardrails and reproducible output</li>
+</ul></li>
+<li>From assisted to autonomous, one crash dataset the whole way</li>
+</ul>
 </section></section>
 <section id="thanks" class="title-slide slide level1 center">
 <h1>Thanks!</h1>

@@ -126,11 +126,39 @@
     "text": "Your turn\n\n\n\nActivity\n\n\nOpen 15-querychat and add querychat to an existing Shiny app.\n\n\n\n\n  \n    −\n    +\n \n 10:00"
   },
   {
-    "objectID": "slides/04-beyond-prompts.html#hopes-and-fears",
-    "href": "slides/04-beyond-prompts.html#hopes-and-fears",
+    "objectID": "slides/04-beyond-prompts.html#sitting-with-the-tension",
+    "href": "slides/04-beyond-prompts.html#sitting-with-the-tension",
     "title": "Beyond prompts",
-    "section": "Hopes and fears",
-    "text": "Hopes and fears\n\nWhere these tools seem to be going\nWhat to watch out for\n\nCost, lock-in, evaluation, trust\n\nWhat do these tools change about your day-to-day work? How can you build on them?\nWhat we will pick up on Day 2\n\nBuild with AI"
+    "section": "Sitting with the tension",
+    "text": "Sitting with the tension\n\nI personally am neither an AI booster nor an AI doomer\nHold the promise and the harm at once\nA thoughtful take from Hadley Wickham: “Returning to Life!”"
+  },
+  {
+    "objectID": "slides/04-beyond-prompts.html#hopes",
+    "href": "slides/04-beyond-prompts.html#hopes",
+    "title": "Beyond prompts",
+    "section": "Hopes",
+    "text": "Hopes\n\nLower the barrier to programming and reproducibility for many more people\nTranslation opens the ecosystem beyond English speakers\nVoice input can remove the typing-fluency gate\n“Play in everyone’s backyard” like Tukey! Shallow expertise in basically any new domain\nProductivity, perhaps 2-5x faster, with careful vetting to keep quality"
+  },
+  {
+    "objectID": "slides/04-beyond-prompts.html#fears",
+    "href": "slides/04-beyond-prompts.html#fears",
+    "title": "Beyond prompts",
+    "section": "Fears",
+    "text": "Fears\n\nEnvironmental cost: data-center energy and water\nCopyright: industrial-scale training on others’ work\nWealth concentration toward a few companies\n“Never really learn”: shallow engagement where skills don’t grow\nAccess: premium tools need US dollars, unlike open source tools"
+  },
+  {
+    "objectID": "slides/04-beyond-prompts.html#your-turn-3",
+    "href": "slides/04-beyond-prompts.html#your-turn-3",
+    "title": "Beyond prompts",
+    "section": "Your turn",
+    "text": "Your turn\n\n\n\nActivity\n\n\n\nWhat is your biggest hope and biggest fear about working with AI?\nDiscuss with a neighbor\n\n\n\n\n\n  \n    −\n    +\n \n 05:00"
+  },
+  {
+    "objectID": "slides/04-beyond-prompts.html#what-we-pick-up-on-day-2",
+    "href": "slides/04-beyond-prompts.html#what-we-pick-up-on-day-2",
+    "title": "Beyond prompts",
+    "section": "What we pick up on Day 2",
+    "text": "What we pick up on Day 2\n\nWhat do these tools change about your day-to-day work? How can you build on them?\nWatch out for: cost, lock-in, evaluation, trust\nBuild with AI: AI coding assistants, from your editor to autonomous agents"
   },
   {
     "objectID": "slides/02-programming-with-llms.html#day-1-build-on-ai",
@@ -399,39 +427,116 @@
     "text": "How RAG actually works\n\nChunk your documents\nCompute embeddings for each chunk\nAt query time, find the most similar chunks and add them to the prompt\nThe “retrieval” is just nearest-neighbor search\n\n\n\n\nDemo\n\n\nA dynamic RAG system over the R for Data Science book: chunk, embed, and let the model retrieve relevant passages on demand.\n# demo/03-rag/03-rag.qmd\nragnar_register_tool_retrieve(chat, store, top_k = 10)\nlive_browser(chat)"
   },
   {
-    "objectID": "slides/05-ai-coding-assistants.html#what-well-cover-today",
-    "href": "slides/05-ai-coding-assistants.html#what-well-cover-today",
+    "objectID": "slides/05-ai-coding-assistants.html#day-2-build-with-ai",
+    "href": "slides/05-ai-coding-assistants.html#day-2-build-with-ai",
     "title": "Intro to AI coding assistants",
-    "section": "What we’ll cover today",
-    "text": "What we’ll cover today\n\nIntro to AI coding assistants\nCode completions and inline suggestions\nChat-based assistance\nAgentic and autonomous workflows"
+    "section": "Day 2: Build with AI",
+    "text": "Day 2: Build with AI\n\nIntro to AI coding assistants (this session!)\nWorking in your editor\nSteering and extending\nAgentic workflows"
   },
   {
-    "objectID": "slides/05-ai-coding-assistants.html#the-landscape-of-options",
-    "href": "slides/05-ai-coding-assistants.html#the-landscape-of-options",
+    "objectID": "slides/05-ai-coding-assistants.html#where-we-left-off",
+    "href": "slides/05-ai-coding-assistants.html#where-we-left-off",
     "title": "Intro to AI coding assistants",
-    "section": "The landscape of options",
-    "text": "The landscape of options\nTODO"
+    "section": "Where we left off",
+    "text": "Where we left off\n\nYesterday we ended by sitting with the tension of real promise and also real harms\nToday we go deeper into the most powerful (and most fraught!) way to work\nThe plan: let’s stay honest and stay in control"
   },
   {
-    "objectID": "slides/05-ai-coding-assistants.html#modes-completion-chat-agent",
-    "href": "slides/05-ai-coding-assistants.html#modes-completion-chat-agent",
+    "objectID": "slides/05-ai-coding-assistants.html#from-build-on-to-build-with",
+    "href": "slides/05-ai-coding-assistants.html#from-build-on-to-build-with",
     "title": "Intro to AI coding assistants",
-    "section": "Modes: completion, chat, agent",
-    "text": "Modes: completion, chat, agent\nTODO"
+    "section": "From “build on” to “build with”",
+    "text": "From “build on” to “build with”\n\nDay 1: you wrote code that calls LLMs (ellmer / chatlas)\nDay 2: AI assistants help you write and run code, on your own data\nSame models, a new way of working"
   },
   {
-    "objectID": "slides/05-ai-coding-assistants.html#cost-considerations",
-    "href": "slides/05-ai-coding-assistants.html#cost-considerations",
+    "objectID": "slides/05-ai-coding-assistants.html#how-most-of-us-start",
+    "href": "slides/05-ai-coding-assistants.html#how-most-of-us-start",
     "title": "Intro to AI coding assistants",
-    "section": "Cost considerations",
-    "text": "Cost considerations\nTODO"
+    "section": "How most of us start",
+    "text": "How most of us start\n\nWeb chat: paste text into ChatGPT and copy paste back\nChat in your editor: assistant can see your files, session, and errors\nInline completions: assistant suggests code right where you are typing\nAgents: fetch their own context and act in a loop\nGoing up the ladder, the assistant sees more of your world"
   },
   {
     "objectID": "slides/05-ai-coding-assistants.html#when-to-reach-for-which",
     "href": "slides/05-ai-coding-assistants.html#when-to-reach-for-which",
     "title": "Intro to AI coding assistants",
     "section": "When to reach for which",
-    "text": "When to reach for which\nTODO"
+    "text": "When to reach for which\n\nWeb chat: quick, throwaway questions (or maybe never?)\nEditor chat: questions and edits grounded in your real code\nCompletions: small and in-flow where you stay fully in control\nAgents: multi-step work you would otherwise do by hand\nTwo dials, not one\n\nHow much it sees\nHow much it does"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#an-llm-in-a-harness",
+    "href": "slides/05-ai-coding-assistants.html#an-llm-in-a-harness",
+    "title": "Intro to AI coding assistants",
+    "section": "An LLM in a harness",
+    "text": "An LLM in a harness\n\nWe built up to this yesterday by learning about turns, conversations, tools\nHarness: the program that wraps the model and runs its tools\n\na web chat, an assistant in your editor, a command-line tool\n\nAgent: an LLM in a harness that calls tools in a loop, deciding each step from the last result\nAn agent needs a read tool (to observe) and a write tool (to act)\n\n\n“What is an Agent?” by Hadley Wickham"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#the-question-that-follows-us",
+    "href": "slides/05-ai-coding-assistants.html#the-question-that-follows-us",
+    "title": "Intro to AI coding assistants",
+    "section": "The question that follows us",
+    "text": "The question that follows us\n\nAn agent is not useful unless it can take actions on your behalf\nBut how do you know it is taking the right actions?\nWe will keep returning to this all day: read vs. write, plans, tests, control"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#one-assistant-many-surfaces",
+    "href": "slides/05-ai-coding-assistants.html#one-assistant-many-surfaces",
+    "title": "Intro to AI coding assistants",
+    "section": "One assistant, many surfaces",
+    "text": "One assistant, many surfaces\n\nA data-science assistant for Positron, RStudio, and the terminal\nBring your own LLM\n\nWe’ll continue to use Anthropic in our workshop\n\nIt knows about your R or Python session\n\nFor example, it can inspect your data frames and their schemas\n\nWe’ll use Posit Assistant for three things\n\nExplore your data\nBuild a dashboard\nDebug and fix code"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#the-top-of-the-ladder-in-one-tool",
+    "href": "slides/05-ai-coding-assistants.html#the-top-of-the-ladder-in-one-tool",
+    "title": "Intro to AI coding assistants",
+    "section": "The top of the ladder, in one tool",
+    "text": "The top of the ladder, in one tool\n\nEditor chat, completions, and a full agentic loop, all in one place\nNo more copy-pasting from a browser\nThis is the tool we will use all day\nOne assistant, one dataset, climbing from assisted to autonomous"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#setting-up-posit-assistant",
+    "href": "slides/05-ai-coding-assistants.html#setting-up-posit-assistant",
+    "title": "Intro to AI coding assistants",
+    "section": "Setting up Posit Assistant",
+    "text": "Setting up Posit Assistant\n\nIf you are using RStudio, you will need to sign up for Posit AI\n\nFree trial for Posit AI should cover your workshop usage today\nRead docs at https://posit-dev.github.io/assistant/docs/downloads/rstudio/\n\nIf you are using Positron, you can use the workshop-provided Anthropic API key or sign up for Posit AI\n\nRead docs at https://posit-dev.github.io/assistant/docs/downloads/positron/"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#your-turn",
+    "href": "slides/05-ai-coding-assistants.html#your-turn",
+    "title": "Intro to AI coding assistants",
+    "section": "Your turn",
+    "text": "Your turn\n\n\n\nActivity\n\n\nGet set up with Posit Assistant:\n\nOpen Positron or RStudio and enable Posit Assistant\nConfigure your model provider\nConfirm it responds: ask it to say hello\n\n\n\n\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#remember-tokens",
+    "href": "slides/05-ai-coding-assistants.html#remember-tokens",
+    "title": "Intro to AI coding assistants",
+    "section": "Remember tokens?",
+    "text": "Remember tokens?\n\nEvery turn replays the whole conversation and you pay per token\nCached input is cheap and the output tokens are the expensive part\nAgents have long conversations, so this matters even more\n/context shows your usage\n/compact summarizes to save tokens"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#context-is-the-key-to-good-help",
+    "href": "slides/05-ai-coding-assistants.html#context-is-the-key-to-good-help",
+    "title": "Intro to AI coding assistants",
+    "section": "Context is the key to good help",
+    "text": "Context is the key to good help\n\nThe assistant works best with high-signal context\nIt already sees your environment including data, plots, errors\nSo let it fetch what it needs; do not paste everything\nGive it what matters, trim what does not\n\n\n\n\nDemo\n\n\nHow do cached input vs. output tokens drive the cost of a long, agentic conversation?\nWalk through Simon’s interactive cost explainer"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#our-dataset-utah-crashes",
+    "href": "slides/05-ai-coding-assistants.html#our-dataset-utah-crashes",
+    "title": "Intro to AI coding assistants",
+    "section": "Our dataset: Utah crashes",
+    "text": "Our dataset: Utah crashes\n\nAbout 250,000 crashes, 2016 to 2019, from the Utah Open Data Portal\nSeverity, location, and risk factors\n\nDUI, distraction, night, teen driver, and more\n\nWe will explore it, build on it, and (carefully) let an agent loose on it"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#your-turn-1",
+    "href": "slides/05-ai-coding-assistants.html#your-turn-1",
+    "title": "Intro to AI coding assistants",
+    "section": "Your turn",
+    "text": "Your turn\n\n\n\nActivity\n\n\nStart a chat with Posit Assistant and let it do the loading:\n\nAsk: “Read data/utah-crash-data-2020.parquet and tell me what is in it. What are the columns, and what might be interesting to explore?”\nNotice that it loads and inspects the data itself and you do not need to paste anything\nTry a follow-up question about something it mentions\n\n\n\n\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/05-ai-coding-assistants.html#the-rest-of-today",
+    "href": "slides/05-ai-coding-assistants.html#the-rest-of-today",
+    "title": "Intro to AI coding assistants",
+    "section": "The rest of today",
+    "text": "The rest of today\n\nWorking in your editor:\n\nCompletions, chat, explore and debug\n\nSteering and extending:\n\nPlans, memory, skills, and MCP\n\nAgentic workflows:\n\nMore autonomy, with guardrails and reproducible output\n\nFrom assisted to autonomous, one crash dataset the whole way"
   },
   {
     "objectID": "slides/07-chat-assistance.html#providing-effective-context",
