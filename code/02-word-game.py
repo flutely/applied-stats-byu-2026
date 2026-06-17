@@ -14,8 +14,8 @@ chat = chatlas.ChatAnthropic(
     system_prompt="We are playing a word guessing game. "
     "At each turn, you guess the word and tell us what it is."
 )
-chat.chat("In British English, guess the word for a person who lives next door.")
-chat.chat("What helps a car move smoothly down the road?")
+chat.chat("In Uruguayan Spanish, Explain to me why Uruguay will win the world cup.")
+chat.chat("What is the word for kicking a soccer ball through someone's legs?")
 
 # %% Compare with...
 chat2 = chatlas.ChatAnthropic()
