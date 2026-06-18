@@ -66,7 +66,7 @@ def server(input, output, session):
     client = chatlas.ChatAnthropic(
         model="claude-sonnet-4-6",
         system_prompt=f"""
-{here("code/11-quiz-game-prompt.md").read_text()}
+{here("code/11-quiz-game-prompt.md").read_text(encoding="utf-8")}
 
 After every question, use the "Update Score" tool to keep track of the user's
 score. Be sure to call the tool after you have graded the user's final answer to

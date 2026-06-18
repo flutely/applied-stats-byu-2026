@@ -15,13 +15,16 @@ from shiny import App, reactive, ui
 dotenv.load_dotenv()
 
 # Tools ------------------------------------------------------------------------
-SoundChoice = Literal["correct", "incorrect", "new-round", "you-win"]
+SoundChoice = Literal["correct", "incorrect", "new-round", "you-win", "annoying", "mad"]
 
 sound_map: dict[SoundChoice, Path] = {
     "correct": here("data/sounds/smb_coin.wav"),
     "incorrect": here("data/sounds/wilhelm.wav"),
     "new-round": here("data/sounds/victory_fanfare_mono.wav"),
     "you-win": here("data/sounds/smb_stage_clear.wav"),
+    "annoying": here("data/sounds/ready_master.wav"),
+    "mad": here("data/sounds/new_item.wav"),
+    "angry": here("data/sounds/work_complete.wav"),
 }
 
 
@@ -31,8 +34,8 @@ def play_sound(sound: SoundChoice = "correct") -> str:
 
     Parameters
     ----------
-    sound: Which sound effect to play: "correct", "incorrect", "new-round" or
-           "you-win". Play the "new-round" sound after the user picks a theme
+    sound: Which sound effect to play: "correct", "incorrect", "new-round", "you-win", "annoying", or "mad".
+           Play the "new-round" sound after the user picks a theme
            for the round. Play the "correct" and "incorrect" sounds when the
            user answers a question correctly or incorrectly, respectively. And
            play the "you-win" sound at the end of a round of questions.
@@ -64,7 +67,7 @@ def server(input, output, session):
     # Set up the chat instance
     client = chatlas.ChatAnthropic(
         model="claude-sonnet-4-6",
-        system_prompt=here("code/11-quiz-game-prompt.md").read_text(),
+        system_prompt=here("code/11-quiz-game-prompt.md").read_text(encoding="utf-8"),
     )
     client.register_tool(play_sound)
 

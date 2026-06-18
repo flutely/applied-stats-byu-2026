@@ -16,24 +16,25 @@ dotenv.load_dotenv()
 # package to complete the task?
 #
 # **Step 2:** Now, let's add some context. Head over to the GitHub Repo for NWS
-# (link in `docs.py.md`). Copy the project description from the `README.me` and
+# (link in `docs.py.md`). Copy the project description from the `README.md` and
 # paste it into `docs.py.md`.
 #
 # **Step 3:** Uncomment the extra lines to include these docs in the prompt and
 # try again.
 
 # %% task
-chat = chatlas.ChatAuto("anthropic/claude-3-5-sonnet-20241022")
+chat = chatlas.ChatAnthropic()
 
 chat.chat(
     # Extra context from package docs
-    here("_solutions/15_coding-assistant/docs.py.md").read_text(),
+    here("code/12-coding-assistant-docs-py.md").read_text(encoding="utf-8"),
     # Task prompt
     "Write a simple function that takes latitude and longitude as inputs "
     "and returns the weather forecast for that location using the NWS "
     "package. Keep the function concise and simple and don't include error "
-    "handling or data re-formatting. Include a short docstring, including "
-    "including examples for NYC and Atlanta, GA.",
+    "handling or data re-formatting. Include a short docstring, "
+    "including examples for NYC and Atlanta, GA."
+    "Just interpret based on what you already know.",
 )
 
 

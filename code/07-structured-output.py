@@ -53,18 +53,18 @@ from pydantic import BaseModel, Field
 
 
 class Ingredient(BaseModel):
-    name: str = Field(..., description="Name of the ingredient")
+    name: str = Field(..., description="Name of the ingredient in shakespeare speak")
     quantity: str = Field(
         ...,
-        description="Quantity as provided (kept as string to allow ranges or fractions)",
+        description="Quantity as provided (kept as string to allow ranges or fractions) but with shakespearean measures",
     )
     unit: Optional[str] = Field(
         None,
-        description="Unit of measure, if applicable",
+        description="Unit of measure, if applicable in shakespeare speak (e.g., 'cup' might be 'grog mug')",
     )
     notes: Optional[str] = Field(
         None,
-        description="Additional notes or preparation details",
+        description="Additional notes or preparation details in shakespeare speak",
     )
 
 
@@ -76,7 +76,7 @@ class Recipe(BaseModel):
 
 # %% Pass the recipe text and the Pydantic model to get structured output
 chat = chatlas.ChatAnthropic()
-recipe = chat.chat_structured(txt_cheesecake.read_text(), data_model=Recipe)
+recipe = chat.chat_structured(txt_cheesecake.read_text(encoding="utf-8"), data_model=Recipe)
 
 # %% We get an instance of the Pydantic model, so you can access fields directly
 recipe.title

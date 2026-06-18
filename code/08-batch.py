@@ -13,7 +13,7 @@ dotenv.load_dotenv()
 from pyhere import here
 
 recipe_files = list(here("data/recipes/text").glob("*"))
-recipes = [f.read_text() for f in recipe_files]
+recipes = [f.read_text(encoding="utf-8") for f in recipe_files]
 
 # %% Let's use the same Pydantic model from the last exercise
 from typing import List, Optional
@@ -68,20 +68,20 @@ recipes_df
 # Because batching lets providers schedule requests more efficiently, it also
 # costs less per token than the standard API.
 
-from chatlas import batch_chat_structured
-
-chat = chatlas.ChatAnthropic(model="claude-haiku-4-5")
-res = batch_chat_structured(
-    chat=chat,
-    prompts=recipes,
-    data_model=Recipe,
-    path=here("data/recipes/batch_results_py_claude.json"),
-)
+# from chatlas import batch_chat_structured
+# 
+# chat = chatlas.ChatAnthropic(model="claude-haiku-4-5")
+# res = batch_chat_structured(
+#     chat=chat,
+#     prompts=recipes,
+#     data_model=Recipe,
+#     path=here("data/recipes/batch_results_py_claude.json"),
+# )
 
 # %% Now, save the results to a JSON file in `data/recipes/recipes.json`
 import json
 
-recipes_structured = [r.model_dump() for r in res]
+recipes_structured = [r.model_dump() for r in recipes_data]
 json.dump(recipes_structured, open(here("data/recipes/recipes.json"), "w"), indent=2)
 
 # Once you've done that, you can open up `08-batch-app.py` and run the app to see

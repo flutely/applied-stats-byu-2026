@@ -42,4 +42,4 @@ plt.figure(p.draw())
 
 # %% Send the plot to the model and ask for an interpretation
 chat = chatlas.ChatAnthropic()
-chat.chat("Interpret this plot of mtcars.", chatlas.content_image_plot(),)
+chat.chat("Interpret this plot of mtcars. This may be faulty data that I was given.", chatlas.content_image_plot(),)

@@ -23,7 +23,7 @@ def server(input, output, session):
     # Set up the chat instance
     client = chatlas.ChatAnthropic(
         model="claude-sonnet-4-6",
-        system_prompt=here("code/11-quiz-game-prompt.md").read_text(),
+        system_prompt=here("code/11-quiz-game-prompt.md").read_text(encoding="utf-8"),
     )
 
     @chat_ui.on_user_submit
